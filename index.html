@@ -1,106 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#8d244f">
-  <meta name="description" content="A little birthday surprise made with love for Kinza.">
-  <title>Happy Birthday, Kinza ❤️</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#241344" />
+  <title>For My Favorite Person ♡</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="ambient ambient-one" aria-hidden="true"></div>
-  <div class="ambient ambient-two" aria-hidden="true"></div>
-  <div id="heartsLayer" class="hearts-layer" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="floating-hearts" aria-hidden="true"></div>
 
-  <main class="page-shell">
-    <nav class="topbar" aria-label="Page navigation">
-      <a class="brand" href="#" aria-label="Birthday page home"><span class="brand-heart">♥</span> a little love note</a>
-      <span class="topbar-date">MADE JUST FOR YOU</span>
-    </nav>
+  <header class="topbar">
+    <span class="brand">a little world for you <span>♡</span></span>
+    <button class="sound-toggle" id="soundToggle" aria-label="Toggle soft sound">♫ <span>Sound off</span></button>
+  </header>
 
-    <section class="hero" id="home">
-      <div class="eyebrow"><span class="eyebrow-line"></span> TODAY IS ALL ABOUT YOU <span class="eyebrow-line"></span></div>
-      <div class="hero-heart" aria-hidden="true">♡</div>
-      <p class="script-intro">Happy Birthday</p>
-      <h1>Kinza<span class="title-period">.</span></h1>
-      <p class="hero-copy">To the girl who makes ordinary days feel a little more magical.</p>
-      <button id="openSurprise" class="primary-button" type="button">
-        <span aria-hidden="true">✦</span> Open your surprise <span class="button-arrow" aria-hidden="true">↗</span>
+  <main>
+    <section class="screen hero active" id="screen0">
+      <div class="eyebrow">A tiny surprise, made with love</div>
+      <div class="hero-heart" aria-hidden="true">♥</div>
+      <p class="small-caps">TODAY IS ALL ABOUT</p>
+      <h1 id="heroName">My Favorite Girl</h1>
+      <p class="lead">I made you a little universe. Take your time exploring it. Every part has a piece of my heart.</p>
+      <button class="primary-btn" data-next="1">Open your surprise <span>→</span></button>
+      <div class="scroll-hint">made just for you · with all my heart</div>
+    </section>
+
+    <section class="screen" id="screen1">
+      <div class="section-number">01 / A LITTLE MAGIC</div>
+      <h2>Look what love can grow…</h2>
+      <p class="section-copy">Tap the little stars and watch your garden bloom.</p>
+      <div class="garden-wrap">
+        <div class="garden-glow"></div>
+        <div class="tree">
+          <div class="trunk"></div>
+          <div class="branch branch-a"></div><div class="branch branch-b"></div>
+          <div class="branch branch-c"></div><div class="branch branch-d"></div>
+          <div class="blossoms" id="blossoms"></div>
+        </div>
+        <div class="garden-stars" id="gardenStars">
+          <button class="tiny-star" style="--x:12%;--y:20%">✦</button>
+          <button class="tiny-star" style="--x:80%;--y:15%">✧</button>
+          <button class="tiny-star" style="--x:23%;--y:55%">✧</button>
+          <button class="tiny-star" style="--x:72%;--y:48%">✦</button>
+          <button class="tiny-star" style="--x:48%;--y:10%">✧</button>
+        </div>
+      </div>
+      <p class="hint" id="gardenHint">Every tap is a little wish for you.</p>
+      <button class="primary-btn" data-next="2">Keep going <span>→</span></button>
+    </section>
+
+    <section class="screen" id="screen2">
+      <div class="section-number">02 / MAKE A WISH</div>
+      <h2>One little candle. One big wish.</h2>
+      <p class="section-copy">Tap the candle to light it, then make a wish just for yourself.</p>
+      <div class="cake-scene">
+        <div class="cake-sparkles">✦　·　✧　·　✦</div>
+        <div class="flame" id="flame"></div>
+        <button class="candle" id="candle" aria-label="Light or blow out the candle"><span></span></button>
+        <div class="cake-top"></div>
+        <div class="cake-layer layer-one"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="cake-layer layer-two"></div>
+        <div class="cake-plate"></div>
+      </div>
+      <p class="hint" id="candleHint">Your wish is safe with the stars ✨</p>
+      <button class="primary-btn" data-next="3">Next little surprise <span>→</span></button>
+    </section>
+
+    <section class="screen" id="screen3">
+      <div class="section-number">03 / LET THE JOY FLOAT</div>
+      <h2>Pop a little happiness 🎈</h2>
+      <p class="section-copy">Tap every balloon. Each one carries a tiny reminder.</p>
+      <div class="balloon-field" id="balloonField">
+        <button class="balloon b1" data-message="You make ordinary days feel special."> <span></span></button>
+        <button class="balloon b2" data-message="Your smile is one of my favorite things."><span></span></button>
+        <button class="balloon b3" data-message="You deserve every beautiful thing in this world."><span></span></button>
+        <button class="balloon b4" data-message="I hope this year brings you soft days and big dreams."><span></span></button>
+        <button class="balloon b5" data-message="You are loved more than this little page can say."><span></span></button>
+      </div>
+      <p class="balloon-message" id="balloonMessage" aria-live="polite">A little surprise is waiting inside each one.</p>
+      <button class="primary-btn" data-next="4">See a memory <span>→</span></button>
+    </section>
+
+    <section class="screen" id="screen4">
+      <div class="section-number">04 / A MOMENT TO KEEP</div>
+      <h2>A little memory of us</h2>
+      <p class="section-copy">Replace this picture with one that always makes you smile.</p>
+      <label class="photo-card" for="photoUpload">
+        <div class="photo-placeholder" id="photoPlaceholder">
+          <span class="photo-icon">♡</span>
+          <strong>Your favorite photo goes here</strong>
+          <small>Tap to add a picture from your device</small>
+        </div>
+        <img id="memoryPhoto" alt="Your favorite memory" hidden />
+        <span class="photo-tape"></span>
+        <span class="photo-caption">my favorite kind of happiness</span>
+      </label>
+      <input type="file" id="photoUpload" accept="image/*" hidden />
+      <p class="hint">Your photo stays on this device; it isn't uploaded anywhere.</p>
+      <button class="primary-btn" data-next="5">There's one last thing… <span>→</span></button>
+    </section>
+
+    <section class="screen" id="screen5">
+      <div class="section-number">05 / OPEN WHEN YOU'RE READY</div>
+      <h2>I wrote something for you.</h2>
+      <p class="section-copy">No rush. This little letter is yours.</p>
+      <button class="envelope" id="openLetter" aria-label="Open your letter">
+        <span class="envelope-back"></span><span class="letter-paper"></span><span class="envelope-front"></span><span class="envelope-flap"></span>
+        <span class="seal">♥</span>
       </button>
-      <p class="tiny-note">A tiny corner of the internet, made with a lot of love.</p>
-      <div class="hero-decoration deco-left" aria-hidden="true">✿</div>
-      <div class="hero-decoration deco-right" aria-hidden="true">♡</div>
+      <p class="hint" id="letterHint">Tap the envelope to open your letter.</p>
+      <article class="letter" id="letter" aria-live="polite">
+        <p class="letter-to">To my favorite person,</p>
+        <p>Happy birthday, my love. ♡</p>
+        <p>I hope you always remember how special you are—not just today, but on the quiet, ordinary days too. You deserve a life full of genuine smiles, peaceful nights, brave dreams, and people who show up for you.</p>
+        <p>Thank you for being you. If I could wish one thing for you, it would be that you see yourself through the eyes of the people who love you: wonderful, precious, and more than enough.</p>
+        <p>May this new chapter be gentle with your heart and generous with your dreams. And wherever life takes us, I hope you never forget that someone is cheering for you with their whole heart.</p>
+        <p class="signature">Always cheering for you,<br /><span id="senderName">your person</span> ♡</p>
+      </article>
+      <button class="primary-btn" id="finalReveal">One last surprise <span>♡</span></button>
     </section>
 
-    <section class="letter-section section-card" id="letter">
-      <div class="section-kicker">A NOTE FROM MY HEART</div>
-      <div class="section-icon" aria-hidden="true">💌</div>
-      <h2>Dear Kinza,</h2>
-      <div class="letter-copy">
-        <p>Happy Birthday to someone who means more to me than words can ever fully explain.</p>
-        <p>I hope this new chapter brings you gentle mornings, genuine smiles, beautiful surprises, and all the little things that make your heart happy. You deserve to feel loved, appreciated, and celebrated—not just today, but every single day.</p>
-        <p>Thank you for being exactly who you are. May you keep growing into your dreams, finding reasons to laugh, and discovering how wonderful life can be. If I could make one wish for you, it would be that you see yourself through the eyes of the people who care about you: truly special.</p>
-        <p class="letter-signoff">Happy Birthday, my favorite person. <span>♡</span></p>
-      </div>
-      <div class="letter-footer"><span>WITH ALL MY HEART</span><span>♥</span><span>ALWAYS</span></div>
+    <section class="screen finale" id="screen6">
+      <div class="firework" aria-hidden="true">✦</div>
+      <div class="final-crown">✧</div>
+      <p class="small-caps">TODAY, TOMORROW, ALWAYS</p>
+      <h1>Happy Birthday,<br /><span id="finalName">My Favorite Girl</span>!</h1>
+      <p class="lead">May your life be as lovely as the love you give to the world.</p>
+      <div class="final-heart">♥</div>
+      <p class="final-note">This little universe was made just for you.</p>
+      <button class="secondary-btn" id="replay">Experience it again ↺</button>
+      <p class="signature-line">with love, always ♡</p>
+      <div class="confetti" id="confetti"></div>
     </section>
-
-    <section class="wishes-section">
-      <div class="section-kicker">MY WISHES FOR YOU</div>
-      <h2>A year as lovely as <em>your heart.</em></h2>
-      <div class="wish-grid">
-        <article class="wish-card">
-          <span class="wish-icon">🌷</span>
-          <h3>Soft moments</h3>
-          <p>More peace, cozy days, and reasons to smile for no reason at all.</p>
-        </article>
-        <article class="wish-card">
-          <span class="wish-icon">✨</span>
-          <h3>Big dreams</h3>
-          <p>May the things you quietly wish for find their way to you.</p>
-        </article>
-        <article class="wish-card">
-          <span class="wish-icon">💗</span>
-          <h3>Real love</h3>
-          <p>May you always feel valued, supported, and loved just as you are.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="final-section" id="finalMessage">
-      <div class="final-sparkle" aria-hidden="true">✧</div>
-      <p class="script-intro">One last thing...</p>
-      <h2>You make the world<br><em>a little brighter.</em></h2>
-      <p class="final-copy">I hope today gives you even a fraction of the happiness you bring into the lives around you.</p>
-      <button id="heartButton" class="heart-button" type="button" aria-label="Send Kinza some love">♥</button>
-      <p class="final-signoff">Happy Birthday, Kinza <span>♡</span></p>
-      <p class="final-small">THIS LITTLE SURPRISE IS YOURS</p>
-    </section>
-
-    <footer class="footer">
-      <span>Made with <span class="footer-heart">♥</span> for Kinza</span>
-      <span>ONE DAY, A THOUSAND SMILES</span>
-    </footer>
   </main>
 
-  <div class="modal-backdrop" id="surpriseModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
-    <div class="surprise-modal">
-      <button id="closeModal" class="close-button" type="button" aria-label="Close surprise">×</button>
-      <div class="modal-flower" aria-hidden="true">🌹</div>
-      <p class="section-kicker">YOUR LITTLE SURPRISE</p>
-      <h2 id="modalTitle">For you, Kinza.</h2>
-      <p class="modal-message">If I could wrap a feeling into a gift, it would be the happiness I hope you feel today. Keep being your lovely self. The world is sweeter with you in it. 💗</p>
-      <div class="modal-divider"><span>♡</span></div>
-      <p class="modal-signoff">You deserve all the beautiful things.</p>
-      <button id="celebrateButton" class="primary-button modal-button" type="button">Send some confetti ✨</button>
-    </div>
-  </div>
-
-  <div class="toast" id="loveToast" role="status" aria-live="polite">A little extra love, just for you 💗</div>
+  <nav class="progress" aria-label="Birthday story progress">
+    <span class="progress-dot current"></span><span class="progress-dot"></span><span class="progress-dot"></span><span class="progress-dot"></span><span class="progress-dot"></span><span class="progress-dot"></span><span class="progress-dot"></span>
+  </nav>
   <script src="script.js"></script>
 </body>
 </html>
